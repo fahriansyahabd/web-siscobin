@@ -17,11 +17,11 @@ class Authcontroler extends Controller
     public function aksilogin(Request $request)
     {
         $request->validate([
-            'nama' => 'required',
-            'password' => 'required|min:6',
+            'name' => 'required|string',
+            'password' => 'required|string',
         ]);
 
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('name', 'password');
 
         if (Auth::attempt($credentials)) {
             return redirect()->route('Home')->with('success', 'Login berhasil! Selamat datang kembali, ' . Auth::user()->name);
@@ -34,8 +34,8 @@ class Authcontroler extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6'
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
         ]);
 
         User::create([
