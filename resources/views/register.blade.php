@@ -6,7 +6,7 @@
                 @if(session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
                 @endif
-                <form action="{{route('aksi.registrasi')}}" class="form-signin" method="POST">
+                <form action="{{route('aksi.registrasi')}}" class="form-signin" method="post">
                     @csrf
                     <div class="account-logo">
                         <a href="index-2.html"><img src="assets/img/logo-dark.png" alt=""></a>
