@@ -28,6 +28,11 @@ Route::post('/registrasi', [Authcontroler::class,'aksiregister'])->name('aksi.re
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/Home', [Authcontroler::class,'home'])->name('Home');
-    Route::get('/frompasien',[Fromcontroller::class,'index'])->name('from.view');
-    Route::get('/frominput',[Fromcontroller::class,'input'])->name('from.inputan');
+    // MENU Ews
+    Route::get('/ews-view',[Fromcontroller::class,'index'])->name('ews.view');
+    Route::get('/ews-create',[Fromcontroller::class,'createews'])->name('ews/create');
+    Route::post('/aksi-ews',[Fromcontroller::class,'aksiews'])->name('aksi-ews');
+    // Ruangan
+    Route::get('/V_raungan',[Fromcontroller::class,'V_ruagan'])->name('V.ruagan');
+    Route::get('/inp-ruagan',[Fromcontroller::class,'ruangan'])->name('inp-ruangan');
 });

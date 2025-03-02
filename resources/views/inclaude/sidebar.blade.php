@@ -37,7 +37,7 @@
         </div>
       </li>
     </ul>
-    <div class="dropdown mobile-user-menu float-right">
+    {{-- <div class="dropdown mobile-user-menu float-right">
       <a
         href="#"
         class="dropdown-toggle"
@@ -51,7 +51,7 @@
         <a class="dropdown-item" href="settings.html">Settings</a>
         <a class="dropdown-item" href="login.html">Logout</a>
       </div>
-    </div>
+    </div> --}}
   </div>
   <div class="sidebar" id="sidebar">
     <div class="sidebar-inner slimscroll">
@@ -64,29 +64,22 @@
             >
           </li>
           <li>
-            <a href="chat.html"
-              ><i class="fa fa-comments"></i> <span>Chat</span>
-              <span class="badge badge-pill bg-primary float-right"
-                >5</span
-              ></a
-            >
-          </li>
-          <li>
             <a href="activities.html"
-              ><i class="fa fa-bell-o"></i> <span>Activities</span></a
+              ><i class="fa fa-bell-o"></i> <span>Display</span></a
             >
           </li>
-          <li class="submenu">
+          {{-- <li class="submenu">
             <a href="#">
               <i class="fa fa-laptop"></i> 
               <span> Display Code Blue</span>
               <span class="menu-arrow"></span></a>
-          </li>
+          </li> --}}
           <li class="submenu">
             <a href="#"><i class="fa fa-edit"></i> <span> Forms</span>
               <span class="menu-arrow"></span></a>
             <ul style="display: none">
-              <li><a href="{{route('from.view')}}">input passein</a></li>
+              <li><a href="{{route('ews.view')}}">Passien</a></li>
+              {{-- <li><a href="{{route('inp-ruangan')}}">Ruangan</a></li> --}}
             </ul>
           </li>
           <li>

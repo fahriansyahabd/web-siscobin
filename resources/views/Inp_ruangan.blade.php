@@ -1,13 +1,13 @@
 @include('inclaude.header')
 @include('inclaude.sidebar')
 <div class="page-wrapper">
-    <div class="content">
+    {{-- <div class="content">
         <div class="row">
             <div class="col-sm-4 col-3">
                 <h4 class="page-title">Data Passien</h4>
             </div>
             <div class="col-sm-8 col-9 text-right m-b-20">
-                <a href="{{route('ews/create')}}" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> TAMBAH</a>
+                <a href="{{route('from.inputan')}}" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> TAMBAH</a>
             </div>
         </div>
         <div class="row">
@@ -43,7 +43,7 @@
                                     <div class="dropdown dropdown-action">
                                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="{{route('ews/create')}}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                            <a class="dropdown-item" href="{{route('from.inputan')}}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
                                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_appointment"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                         </div>
                                     </div>
@@ -74,8 +74,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    {{-- <div class="notification-box">
+    </div> --}}
+    <div class="notification-box">
         <div class="msg-sidebar notifications msg-noti">
             <div class="topnav-dropdown-header">
                 <span>Messages</span>
@@ -283,7 +283,7 @@
                 <a href="chat.html">See all messages</a>
             </div>
         </div>
-    </div> --}}
+    </div>
     {{-- <div id="delete_appointment" class="modal fade delete-modal" role="dialog">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
