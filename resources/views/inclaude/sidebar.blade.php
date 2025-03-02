@@ -2,7 +2,7 @@
     <div class="header-left">
       <a href="index-2.html" class="logo">
         <img src="assets/img/logo.png" width="35" height="35" alt="" />
-        <span>Preclinic</span>
+        <span>SISCOBIN</span>
       </a>
     </div>
     <a id="toggle_btn" href="javascript:void(0);"
