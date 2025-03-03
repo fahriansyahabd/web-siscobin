@@ -16,7 +16,7 @@ class CreateMEwsTable extends Migration
         Schema::create('ews', function (Blueprint $table) {
             $table->id();
             $table->integer('no_cm');
-            $table->string('nama_pasien'); // Perbaiki typo 'passien' -> 'pasien'
+            $table->string('nama_passien'); // Perbaiki typo 'passien' -> 'pasien'
             $table->string('ruangan'); // Perbaiki typo 'ruangn' -> 'ruangan'
             $table->string('diagnosa');
             $table->string('skrining_ews');

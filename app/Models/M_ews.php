@@ -14,7 +14,7 @@ class M_ews extends Model
     protected $table = 'ews'; 
     protected $fillable = [
         'no_cm',
-        'nama_pasien',
+        'nama_passien',
         'ruangan',
         'diagnosa',
         'skrining_ews',
@@ -22,4 +22,6 @@ class M_ews extends Model
         'ket',
         'skor'
     ];
+
+    public $timestamps = false;
 }

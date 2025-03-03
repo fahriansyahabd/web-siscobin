@@ -10,7 +10,8 @@ class Fromcontroller extends Controller
 {
     public function index()
     {
-        return view('fromview');
+        $data = M_ews::all(); // Ambil semua data dari tabel ews
+        return view('fromview', compact('data')); // Kirim data ke view
     }
 
     public function createews()
@@ -22,7 +23,7 @@ class Fromcontroller extends Controller
         {
             $request->validate([
                 'no_cm' => 'required|integer',
-                'nama_pasien' => 'required|string|max:255',
+                'nama_passien' => 'required|string|max:255',
                 'ruangan' => 'required|string|max:255',
                 'diagnosa' => 'required|string|max:255',
                 'skrining_ews' => 'required|string|max:255',
@@ -36,14 +37,38 @@ class Fromcontroller extends Controller
             // Redirect atau kembalikan ke halaman yang diinginkan
             return redirect()->route('ews.view')->with('success', 'Data berhasil disimpan!');    
         }
-    
-    public function V_ruagan()
+
+            // Menampilkan form edit
+    public function edit($id)
     {
-        return view('V_ruangan');
+        $ews = M_ews::findOrFail($id);
+        return view('frominput', compact('ews'));
     }
 
-    public function ruagan()
+    public function update(Request $request, $id)
     {
-        return view('Inp_ruangan');
+        $request->validate([
+            'no_cm' => 'required|integer',
+            'nama_passien' => 'required|string|max:255',
+            'ruangan' => 'required|string|max:255',
+            'diagnosa' => 'required|string|max:255',
+            'skrining_ews' => 'required|string|max:255',
+            'keadaan' => 'required|string|max:255',
+            'ket' => 'required|string',
+            'skor' => 'required|integer',
+        ]);
+
+        $ews = M_ews::findOrFail($id);
+        $ews->update($request->all());
+
+        return redirect()->route('fromview')->with('success', 'Data berhasil diperbarui');
+    }
+
+    public function hapus($id)
+    {
+        $ews = M_ews::findOrFail($id);
+        $ews->delete();
+
+        return redirect()->route('fromview')->with('success', 'Data berhasil dihapus');
     }
 }

@@ -79,7 +79,7 @@
               <span class="menu-arrow"></span></a>
             <ul style="display: none">
               <li><a href="{{route('ews.view')}}">Passien</a></li>
-              {{-- <li><a href="{{route('inp-ruangan')}}">Ruangan</a></li> --}}
+              <li><a href="{{route('create-ruangan')}}">Ruangan</a></li>
             </ul>
           </li>
           <li>

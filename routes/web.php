@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Authcontroler;
 use App\Http\Controllers\Fromcontroller;
+use App\Http\Controllers\Ruangan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,10 +30,11 @@ Route::post('/registrasi', [Authcontroler::class,'aksiregister'])->name('aksi.re
 Route::middleware(['auth'])->group(function () {
     Route::get('/Home', [Authcontroler::class,'home'])->name('Home');
     // MENU Ews
-    Route::get('/ews-view',[Fromcontroller::class,'index'])->name('ews.view');
+    Route::get('/ews-view/{id?}',[Fromcontroller::class,'index'])->name('ews.view');
     Route::get('/ews-create',[Fromcontroller::class,'createews'])->name('ews/create');
     Route::post('/aksi-ews',[Fromcontroller::class,'aksiews'])->name('aksi-ews');
+    Route::delete('/aksi-hapus',[Fromcontroller::class,'hapus'])->name('aksi-hapus');
     // Ruangan
-    Route::get('/V_raungan',[Fromcontroller::class,'V_ruagan'])->name('V.ruagan');
-    Route::get('/inp-ruagan',[Fromcontroller::class,'ruangan'])->name('inp-ruangan');
+    Route::get('/V_raungan',[Ruangan::class,'V_ruagan'])->name('V.ruagan');
+    Route::get('/create-ruagan',[Ruangan::class,'createruangan'])->name('create-ruangan');
 });
