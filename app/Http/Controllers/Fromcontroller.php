@@ -32,7 +32,11 @@ class Fromcontroller extends Controller
                 'skor' => 'required|integer',
             ]);
             // Menyimpan data ke tabel Ews
-            M_ews::create($request->all());
+            $ews = M_ews::create($request->all());
+
+            if ($ews->skor > 7) {
+                return redirect()->route('ews.view')->with('warning', '⚠️ Skor lebih dari 7, harap perhatikan pasien!');
+            }
 
             // Redirect atau kembalikan ke halaman yang diinginkan
             return redirect()->route('ews.view')->with('success', 'Data berhasil disimpan!');    
@@ -41,8 +45,8 @@ class Fromcontroller extends Controller
             // Menampilkan form edit
     public function edit($id)
     {
-        $ews = M_ews::findOrFail($id);
-        return view('frominput', compact('ews'));
+        $ews = Ews::findOrFail($id); // Cari data berdasarkan ID
+        return view('ews.edit', compact('ews')); // Kirim data ke form edit
     }
 
     public function update(Request $request, $id)
@@ -61,7 +65,7 @@ class Fromcontroller extends Controller
         $ews = M_ews::findOrFail($id);
         $ews->update($request->all());
 
-        return redirect()->route('fromview')->with('success', 'Data berhasil diperbarui');
+        return redirect()->route('ews.view')->with('success', 'Data berhasil diperbarui');
     }
 
     public function hapus($id)
@@ -69,6 +73,15 @@ class Fromcontroller extends Controller
         $ews = M_ews::findOrFail($id);
         $ews->delete();
 
-        return redirect()->route('fromview')->with('success', 'Data berhasil dihapus');
+        return back()->with('success', 'Data berhasil dihapus');
+    }
+
+
+
+    // tampilan dislpy 
+    public function display()
+    {
+        $data = M_ews::all(); // Ambil semua data dari tabel ews
+        return view('display', compact('data')); // Kirim data ke view
     }
 }

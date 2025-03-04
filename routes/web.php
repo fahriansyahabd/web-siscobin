@@ -32,8 +32,11 @@ Route::middleware(['auth'])->group(function () {
     // MENU Ews
     Route::get('/ews-view/{id?}',[Fromcontroller::class,'index'])->name('ews.view');
     Route::get('/ews-create',[Fromcontroller::class,'createews'])->name('ews/create');
+    
+    Route::get('/ews-edit',[Fromcontroller::class,'edit'])->name('ewse.dit');
     Route::post('/aksi-ews',[Fromcontroller::class,'aksiews'])->name('aksi-ews');
-    Route::delete('/aksi-hapus',[Fromcontroller::class,'hapus'])->name('aksi-hapus');
+    Route::get('/aksi-hapus/{id}',[Fromcontroller::class,'hapus'])->name('aksi-hapus');
+    Route::get('/display', [Fromcontroller::class,'display'])->name('display.codeblu');
     // Ruangan
     Route::get('/V_raungan',[Ruangan::class,'V_ruagan'])->name('V.ruagan');
     Route::get('/create-ruagan',[Ruangan::class,'createruangan'])->name('create-ruangan');

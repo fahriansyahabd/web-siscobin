@@ -64,7 +64,7 @@
             >
           </li>
           <li>
-            <a href="activities.html"
+            <a href="{{route('display.codeblu')}}"
               ><i class="fa fa-bell-o"></i> <span>Display</span></a
             >
           </li>

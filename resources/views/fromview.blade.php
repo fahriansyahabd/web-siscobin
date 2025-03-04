@@ -11,12 +11,21 @@
             </div>
         </div>
         <div class="row">
+            @if(session('warning'))
+                <script>
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Peringatan!',
+                        text: '{{ session('warning') }}',
+                    });
+                </script>
+            @endif
             <div class="col-md-12">
                 <div class="table-responsive">
                     <table class="table table-striped custom-table" border="1"  id="ewstabel">
                         <thead>
                             <tr>
-                                <th>No</th>
+                                {{-- <th>No</th> --}}
                                 <th>No.CM</th>
                                 <th>Nama Passien</th>
                                 <th>Ruangan</th>
@@ -24,7 +33,7 @@
                                 <th>Skrining Ews</th>
                                 <th>Keadaan</th>
                                 <th>Keteranga</th>
-                                <th>Status</th>
+                                <th>Skor</th>
                                 <th class="text-right">Action</th>
                             </tr>
                         </thead>
@@ -40,38 +49,18 @@
                                 <td>{{$ews->skrining_ews}}</td>
                                 <td>{{$ews->keadaan}}</td>
                                 <td>{{$ews->ket}}</td>
-                                <td><span class="custom-badge status-red">Inactive</span></td>
+                                <td>{{$ews->skor}}</td>
                                 <td class="text-right">
                                     <div class="dropdown dropdown-action">
                                         <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="{{route('ews/create')}}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="{{route('aksi-hapus')}}" data-toggle="modal" data-target="#delete_appointment"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                            <a class="dropdown-item" href="{{route('ewse.dit')}}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                            <a class="dropdown-item" href="{{route('aksi-hapus',$ews)}}" data-toggle="modal"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
                             @endforeach
-                            <tr>
-                                <td>APT0002</td>
-                                <td><img width="28" height="28" src="assets/img/user.jpg" class="rounded-circle m-r-5" alt=""> Denise Stevens</td>
-                                <td>35</td>
-                                <td>Henry Daniels</td>
-                                <td>Cardiology</td>
-                                <td>30 Dec 2018</td>
-                                <td>10:00am - 11:00am</td>
-                                <td>10:00am - 11:00am</td>
-                                <td><span class="custom-badge status-green">Active</span></td>
-                                <td class="text-right">
-                                    <div class="dropdown dropdown-action">
-                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="edit-appointment.html"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_appointment"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                     <script>
