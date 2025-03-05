@@ -65,7 +65,7 @@
           </li>
           <li>
             <a href="{{route('display.codeblu')}}"
-              ><i class="fa fa-bell-o"></i> <span>Display</span></a
+              ><i class="fa fa-bell-o"></i> <span>Tampilan Ews</span></a
             >
           </li>
           {{-- <li class="submenu">
@@ -75,26 +75,11 @@
               <span class="menu-arrow"></span></a>
           </li> --}}
           <li class="submenu">
-            <a href="#"><i class="fa fa-edit"></i> <span> Forms</span>
+            <a href="#"><i class="fa fa-edit"></i> <span> Menu Inputan</span>
               <span class="menu-arrow"></span></a>
             <ul style="display: none">
               <li><a href="{{route('ews.view')}}">Passien</a></li>
-              <li><a href="{{route('create-ruangan')}}">Ruangan</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href="calendar.html">
-              <i class="fa fa-calendar"></i> 
-              <span>Calendar</span></a>
-          </li>
-          <li class="menu-title">Extras</li>
-          <li class="submenu">
-            <a href="javascript:void(0);"><i class="fa fa-share-alt"></i> <span>Multi Level</span>
-              <span class="menu-arrow"></span></a>
-            <ul style="display: none">
-              <li>
-                <a href="javascript:void(0);"><span>Level 1</span></a>
-              </li>
+              {{-- <li><a href="{{route('create-ruangan')}}">Ruangan</a></li> --}}
             </ul>
           </li>
         </ul>
