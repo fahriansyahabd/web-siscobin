@@ -35,7 +35,9 @@ class Fromcontroller extends Controller
             $ews = M_ews::create($request->all());
 
             if ($ews->skor > 7) {
-                return redirect()->route('ews.view')->with('warning', '⚠️ Skor lebih dari 7, harap perhatikan pasien!');
+                return redirect()->route('ews.view')->with([
+                    'warning' => "⚠️ Pasien di Ruangan *{$ews->ruangn}* passien lebih dari skor 7 segerah aktifkan code blue",
+                ]);
             }
 
             // Redirect atau kembalikan ke halaman yang diinginkan

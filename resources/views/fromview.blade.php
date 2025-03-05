@@ -12,14 +12,28 @@
         </div>
         <div class="row">
             @if(session('warning'))
-                <script>
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'Peringatan!',
-                        text: '{{ session('warning') }}',
-                    });
-                </script>
-            @endif
+            <script>
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Peringatan!',
+                    html: '{{ session('warning') }}',
+                    confirmButtonColor: '#d33',
+                    confirmButtonText: 'OK'
+                });
+            </script>
+        @endif
+        
+        @if(session('success'))
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Berhasil!',
+                    text: '{{ session('success') }}',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK'
+                });
+            </script>
+        @endif
             <div class="col-md-12">
                 <div class="table-responsive">
                     <table class="table table-striped custom-table" border="1"  id="ewstabel">
