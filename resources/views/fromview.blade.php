@@ -55,7 +55,7 @@
                             @foreach ($data as $ews )
                                 
                             <tr>
-                                <td></td>
+                                {{-- <td></td> --}}
                                 <td>{{$ews->no_cm}}</td>
                                 <td>{{$ews->nama_passien}}</td>
                                 <td>{{$ews->ruangan}}</td>
